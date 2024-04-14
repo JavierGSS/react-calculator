@@ -29,17 +29,31 @@ const App = () => {
 
   return (
     <Wrapper>
-      <Screen value="0" />
+      <Screen value={calc.num ? calc.num : calc.res} />
       <ButtonBox>
         {btnValues.flat().map((btn, i) => {
           return (
+            /* The Button component can detect different button types 
+            and execute the assigned function once the specific button is pressed */
             <Button
               key={i}
               className={btn === "=" ? "equals" : ""}
               value={btn}
-              onClick={() => {
-                console.log(`${btn} clicked!`);
-              }}
+              onClick={
+                btn === "C"
+                  ? resetClickHandler
+                  : btn === "+-"
+                  ? invertClickHandler
+                  : btn === "%"
+                  ? percentClickHandler
+                  : btn === "="
+                  ? equalsClickHandler
+                  : btn === "/" || btn === "X" || btn === "-" || btn === "+"
+                  ? signClickHandler
+                  : btn === "."
+                  ? commaClickHandler
+                  : numClickHandler
+              }
             />
           );
         })}
