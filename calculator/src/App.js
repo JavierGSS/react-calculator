@@ -2,6 +2,7 @@ import Wrapper from "./components/Wrapper";
 import Screen from "./components/Screen";
 import ButtonBox from "./components/ButtonBox";
 import Button from "./components/Button";
+import React, { useState } from "react";
 
 /* We create an array representation of the data in the wireframe,
 so we can map through and render all the buttons in the ButtonBox: */
@@ -15,6 +16,17 @@ const btnValues = [
 ];
 
 const App = () => {
+  /* We declare our state variables: num, 
+  the entered value; sign, the selected sign;
+  and res, the calculated value. We use an object
+  to set all states at once:*/
+
+  const [calc, setCalc] = React.useState({
+    sign: "",
+    num: 0,
+    res: 0,
+  });
+
   return (
     <Wrapper>
       <Screen value="0" />
