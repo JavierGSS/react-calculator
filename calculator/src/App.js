@@ -15,6 +15,18 @@ const btnValues = [
   [0, ".", "="],
 ];
 
+/* We implement value formatting. We use a modified Regex string.
+toLocaleString() takes a number, formats it into the string format and creates
+the space separators for the thousand mark: */
+
+const toLocaleString = (num) =>
+  String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
+
+/* We use removeSpaces() to reverse the previous process. We take a string of numbers,
+and remove the spaces, and later convert it to number. */
+
+const removeSpaces = (num) => num.toString().replace(/\s/g, "");
+
 const App = () => {
   /* We declare our state variables: num, 
   the entered value; sign, the selected sign;
@@ -39,17 +51,18 @@ const App = () => {
     e.preventDefault();
     const value = e.target.innerHTML;
 
-    if (calc.num.length < 16) {
+    if (removeSpaces(calc.num).length < 16) {
       setCalc({
         ...calc,
         num:
           calc.num === 0 && value === "0"
             ? 0
-            : calc.num % 1 === 0
-            ? Number(calc.num + value)
-            : calc.num + value,
+            : removeSpaces(calc.num) % 1 === 0
+            ? toLocaleString(Number(removeSpaces(calc.num + value)))
+            : toLocaleString(calc.num + value),
         res: !calc.sign ? 0 : calc.res,
       });
+      console.log(calc.num, calc.res, calc.sign);
     }
   };
 
