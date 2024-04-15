@@ -60,7 +60,6 @@ The following tools were used in this project:
 
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
 - [JavaScript](https://www.javascript.com)
 
 ## :white_check_mark: Requirements ##
