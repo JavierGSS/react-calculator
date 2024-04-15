@@ -21,7 +21,7 @@ const App = () => {
   and res, the calculated value. We use an object
   to set all states at once:*/
 
-  const [calc, setCalc] = React.useState({
+  const [calc, setCalc] = useState({
     sign: "",
     num: 0,
     res: 0,
