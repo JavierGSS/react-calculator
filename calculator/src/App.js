@@ -62,7 +62,7 @@ const App = () => {
             : toLocaleString(calc.num + value),
         res: !calc.sign ? 0 : calc.res,
       });
-      console.log(calc.num, calc.res, calc.sign);
+      console.log("num: ", calc.num, "res: ", calc.res, "sign: ", calc.sign);
     }
   };
 
@@ -130,6 +130,7 @@ const App = () => {
         sign: "",
         num: 0,
       });
+      console.log("num: ", calc.num, "res: ", calc.res, "sign: ", calc.sign);
     }
   };
 
