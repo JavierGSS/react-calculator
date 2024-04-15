@@ -78,6 +78,7 @@ const App = () => {
       ...calc,
       num: !calc.num.toString().includes(".") ? calc.num + value : calc.num,
     });
+    console.log("num: ", calc.num, "res: ", calc.res, "sign: ", calc.sign);
   };
 
   /* The signClickHandler function gets fired when the user press either +, –, * or /. 
@@ -94,6 +95,7 @@ const App = () => {
       res: !calc.res && calc.num ? calc.num : calc.res,
       num: 0,
     });
+    console.log("num: ", calc.num, "res: ", calc.res, "sign: ", calc.sign);
   };
 
   /* equalsClickHandler() calculates the result when the
@@ -144,6 +146,7 @@ const App = () => {
       res: calc.res ? toLocaleString(removeSpaces(calc.res) * -1) : 0,
       sign: "",
     });
+    console.log("num: ", calc.num, "res: ", calc.res, "sign: ", calc.sign);
   };
 
   /* percentClickHandler() checks if there’s any entered value (num)
@@ -160,6 +163,7 @@ const App = () => {
       res: (res /= Math.pow(100, 1)),
       sign: "",
     });
+    console.log("num: ", calc.num, "res: ", calc.res, "sign: ", calc.sign);
   };
 
   /* resetClickHandler() defaults all the initial values of calc, returning the calc state
@@ -172,6 +176,7 @@ const App = () => {
       num: 0,
       res: 0,
     });
+    console.log("num: ", calc.num, "res: ", calc.res, "sign: ", calc.sign);
   };
 
   return (
