@@ -1,1 +1,1 @@
-Check /calculator
+Check /calculator! 🤠
